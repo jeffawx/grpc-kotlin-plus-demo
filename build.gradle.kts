@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     `java-library`
-    id("com.airwallex.grpc-spring") version "0.1.0" apply false
+    id("com.airwallex.grpc-spring") version "0.2.0" apply false
 }
 
 group = "com.airwallex"
@@ -23,7 +23,7 @@ subprojects {
     tasks {
         withType<KotlinCompile> {
             kotlinOptions {
-                freeCompilerArgs = listOf("-Xjsr305=strict")
+                freeCompilerArgs = listOf("-Xjsr305=strict", "-Xopt-in=kotlin.RequiresOptIn")
                 jvmTarget = "11"
             }
         }

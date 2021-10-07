@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package demo;
+
+option java_package = "com.airwallex.grpc.demo";
+
+service Greeter2 {
+  rpc SayHello(HelloRequest) returns (HelloReply) {}
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}

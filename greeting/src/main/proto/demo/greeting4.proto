@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package demo;
+
+import "google/protobuf/wrappers.proto";
+
+option java_package = "com.airwallex.grpc.demo";
+
+service Greeter4 {
+  rpc SayHello(stream google.protobuf.StringValue) returns (stream google.protobuf.StringValue) {}
+}
