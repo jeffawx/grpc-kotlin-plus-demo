@@ -1,5 +1,7 @@
 # grpc-kotlin-plus-demo
 
+All examples are using "grpc-spring" gradle plugin, see [build script](/build.gradle.kts)
+
 ## Greeting
 
 * **greeter**: uses built-in types without mapping
