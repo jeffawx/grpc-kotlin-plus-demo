@@ -9,7 +9,7 @@ import reactor.core.publisher.Flux
 
 @SpringBootTest(
     "grpc.server.name=greet4",
-    "grpc.server.port=-1",
+    "grpc.server.port=-1", // random port
     "grpc.client.channels.greet4.in-process=true"
 )
 class Greeter4Test {

@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest(
     "grpc.server.name=greet2",
-    "grpc.server.port=-1",
+    "grpc.server.port=-1", // random port
     "grpc.client.channels.greet2.in-process=true"
 )
 class Greeter2Test {
