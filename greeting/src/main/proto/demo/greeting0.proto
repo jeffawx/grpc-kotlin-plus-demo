@@ -4,14 +4,14 @@ package demo;
 
 option java_package = "com.airwallex.grpc.demo";
 
-service Greeter2 {
-  rpc SayHello(HelloRequest2) returns (HelloReply2) {}
+service Greeter {
+  rpc SayHello(HelloRequest) returns (HelloReply) {}
 }
 
-message HelloRequest2 {
+message HelloRequest {
   string name = 1;
 }
 
-message HelloReply2 {
+message HelloReply {
   string message = 1;
 }

@@ -1,6 +1,8 @@
 package com.airwallex.grpc.demo
 
 import com.airwallex.grpc.annotations.GrpcService
+import com.airwallex.grpc.demo.Greeting3.HelloReply3
+import com.airwallex.grpc.demo.Greeting3.HelloRequest3
 import com.airwallex.grpc.spring.server.AutoGrpcServiceImpl
 import com.airwallex.mapstruct.protobuf.ProtobufConfig
 import org.mapstruct.Mapper
@@ -38,10 +40,10 @@ data class GreetReply(val message: String)
 @Mapper(config = ProtobufConfig::class)
 interface GreeterMapper {
     // for server
-    fun sayHelloMapRequestFromProto(request: Greeting3.HelloRequest3): GreetRequest
-    fun sayHelloMapResponseToProto(response: GreetReply): Greeting3.HelloReply3
+    fun sayHelloMapRequestFromProto(request: HelloRequest3): GreetRequest
+    fun sayHelloMapResponseToProto(response: GreetReply): HelloReply3
 
     // for client
-    fun sayHelloMapRequestToProto(request: GreetRequest): Greeting3.HelloRequest3
-    fun sayHelloMapResponseFromProto(response: Greeting3.HelloReply3): GreetReply
+    fun sayHelloMapRequestToProto(request: GreetRequest): HelloRequest3
+    fun sayHelloMapResponseFromProto(response: HelloReply3): GreetReply
 }

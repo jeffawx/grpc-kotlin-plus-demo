@@ -4,6 +4,6 @@ package demo;
 
 import "google/protobuf/wrappers.proto";
 
-service Greeter {
+service Greeter1 {
   rpc SayHello(google.protobuf.StringValue) returns (google.protobuf.StringValue) {}
 }

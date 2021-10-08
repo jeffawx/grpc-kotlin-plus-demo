@@ -6,14 +6,14 @@ import com.airwallex.grpc.spring.server.AutoGrpcServiceImpl
 /**
  * Simplest approach using well-known protobuf types.
  *
- * schema: "greeting.proto"
+ * schema: "greeting1.proto"
  */
 @GrpcService(protoJavaPackage = "demo")
-interface Greeter {
+interface Greeter1 {
     suspend fun sayHello(name: String): String
 }
 
 @AutoGrpcServiceImpl
-class GreeterImpl : Greeter {
+class Greeter1Impl : Greeter1 {
     override suspend fun sayHello(name: String) = "Hello $name"
 }

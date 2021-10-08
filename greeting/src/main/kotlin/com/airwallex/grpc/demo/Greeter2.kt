@@ -1,6 +1,8 @@
 package com.airwallex.grpc.demo
 
 import com.airwallex.grpc.annotations.GrpcService
+import com.airwallex.grpc.demo.Greeting2.HelloReply2
+import com.airwallex.grpc.demo.Greeting2.HelloRequest2
 import com.airwallex.grpc.spring.server.AutoGrpcServiceImpl
 
 /**
@@ -10,13 +12,13 @@ import com.airwallex.grpc.spring.server.AutoGrpcServiceImpl
  */
 @GrpcService
 interface Greeter2 {
-    suspend fun sayHello(request: Greeting2.HelloRequest): Greeting2.HelloReply
+    suspend fun sayHello(request: HelloRequest2): HelloReply2
 }
 
 @AutoGrpcServiceImpl
 class Greeter2Impl : Greeter2 {
-    override suspend fun sayHello(request: Greeting2.HelloRequest) =
-        helloReply {
+    override suspend fun sayHello(request: HelloRequest2) =
+        helloReply2 {
             message = "Hello ${request.name}"
         }
 }

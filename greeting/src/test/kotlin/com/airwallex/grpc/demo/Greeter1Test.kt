@@ -8,14 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest(
-    "grpc.server.name=greet",
-    "grpc.server.port=-1", // random port
-    "grpc.client.channels.greet.in-process=true"
+    "grpc.server.name=greet1",
+    "grpc.server.port=-1", // 0 for random port, -1 for in-process server
+    "grpc.client.channels.greet1.in-process=true"
 )
-class GreeterTest {
+class Greeter1Test {
 
     @Autowired
-    private lateinit var greeter: GreeterClient
+    private lateinit var greeter: Greeter1Client
 
     @Test
     fun `test greeting`() = runBlocking {
@@ -23,6 +23,6 @@ class GreeterTest {
         assertEquals("Hello $name", greeter.sayHello(name))
     }
 
-    @GrpcClient(channel = "greet")
-    interface GreeterClient : Greeter
+    @GrpcClient(channel = "greet1")
+    interface Greeter1Client : Greeter1
 }

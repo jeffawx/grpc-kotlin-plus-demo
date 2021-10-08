@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest(
     "grpc.server.name=greet3",
-    "grpc.server.port=-1", // random port
+    "grpc.server.port=-1", // 0 for random port, -1 for in-process server
     "grpc.client.channels.greet3.in-process=true"
 )
 class Greeter3Test {
