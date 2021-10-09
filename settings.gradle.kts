@@ -7,4 +7,4 @@ pluginManagement {
 
 rootProject.name = "grpc-kotlin-plus-demo"
 
-include("greeting")
+include("greeting", "greeting-web")

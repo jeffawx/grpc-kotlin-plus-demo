@@ -1,0 +1,10 @@
+grpc:
+  server:
+    enabled: false      # this is gRPC client only project
+  client:
+    channels:
+      greeter:
+        host: localhost # can be omitted since default to localhost
+        port: 8090      # can be omitted since default to 8090
+        tls:
+          enabled: false
