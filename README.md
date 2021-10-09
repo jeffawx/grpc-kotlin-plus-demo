@@ -2,7 +2,7 @@
 
 All examples are using "grpc-spring" gradle plugin, see [build script](/build.gradle.kts)
 
-## greeting
+## [greeting](/greeting)
 
 * **greeter-0**: vanilla grpc-java example setting up the stage
   [server](/greeting/src/main/kotlin/com/airwallex/grpc/demo/Greeter0.kt) |
@@ -30,7 +30,7 @@ All examples are using "grpc-spring" gradle plugin, see [build script](/build.gr
   [client](/greeting/src/test/kotlin/com/airwallex/grpc/demo/Greeter4Test.kt) |
   [proto](/greeting/src/main/proto/demo/greeting4.proto)
 
-## greeting-web
+## [greeting-web](/greeting-web)
 
 provides REST API to expose greeting service demonstrating how to consume gRPC service from separate process. Need to
 start greeting service first.
