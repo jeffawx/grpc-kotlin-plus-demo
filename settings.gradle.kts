@@ -1,6 +1,7 @@
 pluginManagement {
     repositories {
-        maven("https://artistry.airwallex.com/repository/lib-release/libs-release-local")
+        mavenLocal()
+//        maven("https://artistry.airwallex.com/repository/lib-release/libs-release-local")
         gradlePluginPortal()
     }
 }

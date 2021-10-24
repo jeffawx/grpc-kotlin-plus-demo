@@ -5,24 +5,23 @@ import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.TestPropertySource
 
-@SpringBootTest(
-    "grpc.server.name=greet1",
-    "grpc.server.port=-1", // 0 for random port, -1 for in-process server
-    "grpc.client.channels.greet1.in-process=true"
+@TestPropertySource(
+    properties = [
+        "grpc.client.channels.greeter1.in-process=true",
+        "grpc.client.channels.greeter1.server-name=test",
+    ]
 )
-class Greeter1Test {
+class Greeter1Test : BaseTest() {
 
     @Autowired
-    private lateinit var greeter: Greeter1Client
+    @GrpcClient
+    private lateinit var greeter1: Greeter1
 
     @Test
     fun `test greeting`() = runBlocking {
         val name = "Jeff"
-        assertEquals("Hello $name", greeter.sayHello(name))
+        assertEquals("Hello $name", greeter1.sayHello(name))
     }
-
-    @GrpcClient(channel = "greet1")
-    interface Greeter1Client : Greeter1
 }

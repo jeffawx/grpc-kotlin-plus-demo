@@ -4,24 +4,23 @@ import com.airwallex.grpc.annotations.GrpcClient
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.TestPropertySource
 
-@SpringBootTest(
-    "grpc.server.name=greet3",
-    "grpc.server.port=-1", // 0 for random port, -1 for in-process server
-    "grpc.client.channels.greet3.in-process=true"
+@TestPropertySource(
+    properties = [
+        "grpc.client.channels.greeter3.in-process=true",
+        "grpc.client.channels.greeter3.server-name=test",
+    ]
 )
-class Greeter3Test {
+class Greeter3Test : BaseTest() {
 
     @Autowired
-    private lateinit var greeter: Greeter3Client
+    @GrpcClient
+    private lateinit var greeter3: Greeter3
 
     @Test
     fun `test greeting`() {
         val name = "Jeff"
-        assertEquals("Hello $name", greeter.sayHello(GreetRequest(name)).block()!!.message)
+        assertEquals("Hello $name", greeter3.sayHello(GreetRequest(name)).block()!!.message)
     }
-
-    @GrpcClient(channel = "greet3")
-    interface Greeter3Client : Greeter3
 }
