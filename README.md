@@ -1,5 +1,7 @@
 # grpc-kotlin-plus-demo
 
+Demo for [grpc-kotlin-plus](https://github.com/airwallex/grpc-kotlin-plus)
+
 All examples are using "grpc-spring" gradle plugin, see [build script](/build.gradle.kts)
 
 ## [greeting](/greeting)
@@ -37,4 +39,12 @@ start greeting service first.
 
 ```bash
 curl http://localhost:8080/hello/John
+```
+
+## [echo-service](/echo-service)
+
+echo service ported from [reference-implementations/grpc](https://github.com/airwallex/reference-implementations/tree/master/grpc)
+
+```bash
+grpcurl -plaintext -d '{"message": "Jeff"}' localhost:9002 com.airwallex.refimpl.grpc.EchoServiceGrpc/Echo
 ```

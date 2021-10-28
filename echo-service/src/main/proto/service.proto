@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.airwallex.refimpl.grpc";
+
+package com.airwallex.refimpl.grpc;
+
+service EchoServiceGrpc {
+  rpc Echo (EchoRequestMsg) returns (EchoReplyMsg) {}
+}
+
+message EchoRequestMsg {
+  string message = 1;
+}
+
+message EchoReplyMsg {
+  string message = 1;
+}
