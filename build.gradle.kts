@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     `java-library`
-    id("com.airwallex.grpc-spring") version "1.0.0" apply false
+    id("com.airwallex.grpc-spring") version "1.1.0-SNAPSHOT" apply false
 }
 
 group = "com.airwallex"
@@ -10,6 +10,7 @@ version = "0.0.1-SNAPSHOT"
 
 allprojects {
     repositories {
+        mavenLocal()
         maven("https://artistry.airwallex.com/repository/lib-release/libs-release-local")
         mavenCentral()
     }

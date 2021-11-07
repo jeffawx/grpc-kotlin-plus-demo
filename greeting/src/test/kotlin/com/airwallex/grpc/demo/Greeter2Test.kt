@@ -17,7 +17,7 @@ class Greeter2Test : BaseTest() {
 
     @Autowired
     @GrpcClient
-    private lateinit var greeter2: Greeter2
+    private lateinit var greeter2: Greeter2Rpc
 
     @Test
     fun `test greeting`() = runBlocking {

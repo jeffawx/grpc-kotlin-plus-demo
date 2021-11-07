@@ -1,6 +1,7 @@
 package com.airwallex.grpc.demo
 
 import com.airwallex.grpc.annotations.GrpcClient
+import demo.Greeter1Rpc
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -17,7 +18,7 @@ class Greeter1Test : BaseTest() {
 
     @Autowired
     @GrpcClient
-    private lateinit var greeter1: Greeter1
+    private lateinit var greeter1: Greeter1Rpc
 
     @Test
     fun `test greeting`() = runBlocking {
