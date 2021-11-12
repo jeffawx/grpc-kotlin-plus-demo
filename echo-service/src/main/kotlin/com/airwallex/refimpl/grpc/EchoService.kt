@@ -4,11 +4,11 @@ import com.airwallex.grpc.spring.server.AutoGrpcServiceImpl
 import reactor.core.publisher.Mono
 
 @AutoGrpcServiceImpl
-class EchoServiceGrpcImpl : EchoServiceGrpc {
+class EchoService : EchoServiceRpc {
 
-    override fun echo(req: EchoRequestMsg): Mono<EchoReplyMsg> {
+    override fun echo(request: EchoRequestMsg): Mono<EchoReplyMsg> {
         return Mono.just(echoReplyMsg {
-            message = "echo: " + req.message
+            message = "echo: " + request.message
         })
     }
 }

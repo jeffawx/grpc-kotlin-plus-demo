@@ -5,7 +5,7 @@ option java_package = "com.airwallex.refimpl.grpc";
 
 package com.airwallex.refimpl.grpc;
 
-service EchoServiceGrpc {
+service EchoService {
   rpc Echo (EchoRequestMsg) returns (EchoReplyMsg) {}
 }
 
