@@ -3,9 +3,9 @@ package com.airwallex.grpc.demo
 import com.airwallex.grpc.annotations.GrpcService
 import com.airwallex.grpc.demo.Greeting3.HelloReply3
 import com.airwallex.grpc.demo.Greeting3.HelloRequest3
-import com.airwallex.grpc.spring.server.AutoGrpcServiceImpl
 import com.airwallex.mapstruct.protobuf.ProtobufConfig
 import org.mapstruct.Mapper
+import org.springframework.stereotype.Service
 import reactor.core.publisher.Mono
 
 /**
@@ -22,7 +22,7 @@ interface Greeter3 {
     fun sayHello(request: GreetRequest): Mono<GreetReply> // other async types are supported as well.
 }
 
-@AutoGrpcServiceImpl
+@Service
 class Greeter3Impl : Greeter3 {
     override fun sayHello(request: GreetRequest) =
         Mono.just(GreetReply("Hello ${request.name}"))

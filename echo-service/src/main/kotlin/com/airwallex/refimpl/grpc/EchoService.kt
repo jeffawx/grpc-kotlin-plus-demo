@@ -1,9 +1,9 @@
 package com.airwallex.refimpl.grpc
 
-import com.airwallex.grpc.spring.server.AutoGrpcServiceImpl
+import org.springframework.stereotype.Service
 import reactor.core.publisher.Mono
 
-@AutoGrpcServiceImpl
+@Service
 class EchoService : EchoServiceRpc {
 
     override fun echo(request: EchoRequestMsg): Mono<EchoReplyMsg> {

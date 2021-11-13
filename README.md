@@ -46,5 +46,5 @@ curl http://localhost:8080/hello/John
 echo service ported from [reference-implementations/grpc](https://github.com/airwallex/reference-implementations/tree/master/grpc)
 
 ```bash
-grpcurl -plaintext -d '{"message": "Jeff"}' localhost:9002 com.airwallex.refimpl.grpc.EchoServiceGrpc/Echo
+grpcurl -plaintext -d '{"message": "Jeff"}' localhost:9002 com.airwallex.refimpl.grpc.EchoService/Echo
 ```
