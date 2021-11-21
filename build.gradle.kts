@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     `java-library`
-    id("com.airwallex.grpc-spring") version "1.1.0" apply false
+    id("com.airwallex.grpc-spring") version "1.1.1-SNAPSHOT" apply false
 }
 
 group = "com.airwallex"
