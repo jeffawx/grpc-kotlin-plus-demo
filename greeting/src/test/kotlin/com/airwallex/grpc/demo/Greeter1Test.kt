@@ -1,6 +1,7 @@
 package com.airwallex.grpc.demo
 
 import com.airwallex.grpc.annotations.GrpcClient
+import com.github.michaelbull.result.get
 import demo.Greeter1Rpc
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -23,6 +24,6 @@ class Greeter1Test : BaseTest() {
     @Test
     fun `test greeting`() = runBlocking {
         val name = "Jeff"
-        assertEquals("Hello $name", greeter1.sayHello(name))
+        assertEquals("Hello $name", greeter1.sayHello(name).get())
     }
 }

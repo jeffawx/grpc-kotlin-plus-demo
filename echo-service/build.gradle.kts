@@ -1,4 +1,3 @@
 grpc {
     reactorInterface()
-    enableProtoBuiltinKotlin()
 }
