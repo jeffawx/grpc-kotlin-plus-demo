@@ -6,7 +6,7 @@ import com.airwallex.grpc.demo.Greeting3.HelloRequest3
 import com.airwallex.mapstruct.protobuf.ProtobufConfig
 import org.mapstruct.Mapper
 
-@GrpcClient(value = "Greeter3", channel = "greeter", mapperInterface = GreeterMapper::class)
+@GrpcClient("greeter", name = "Greeter3", mapperInterface = GreeterMapper::class)
 interface GreeterClient {
     suspend fun sayHello(request: GreetRequest): GreetReply
 }

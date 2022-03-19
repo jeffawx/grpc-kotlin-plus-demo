@@ -17,7 +17,7 @@ import org.springframework.test.context.TestPropertySource
 class Greeter2Test : BaseTest() {
 
     @Autowired
-    @GrpcClient
+    @GrpcClient(id = "greeter2")
     private lateinit var greeter2: Greeter2Rpc
 
     @Test
