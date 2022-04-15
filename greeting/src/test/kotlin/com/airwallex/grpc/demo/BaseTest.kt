@@ -1,6 +1,6 @@
 package com.airwallex.grpc.demo
 
-import com.airwallex.grpc.GrpcServer
+import com.airwallex.grpc.server.GrpcServer
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS
