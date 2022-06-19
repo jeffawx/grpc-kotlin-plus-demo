@@ -10,4 +10,4 @@ class Greeter5Impl : Greeter5Rpc {
         requests.map { Message("Hello ${it.text}") }
 }
 
-data class Message(val text: String)
+class Message(val text: String)

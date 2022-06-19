@@ -24,6 +24,6 @@ class Greeter5Test : BaseTest() {
     @Test
     fun `test greeting`() = runBlocking {
         val names = flowOf(Message("Jeff"), Message("Tony"))
-        assertEquals(listOf(Message("Hello Jeff"), Message("Hello Tony")), greeter5.sayHello(names).toList())
+        assertEquals(listOf("Hello Jeff", "Hello Tony"), greeter5.sayHello(names).toList().map { it.text })
     }
 }

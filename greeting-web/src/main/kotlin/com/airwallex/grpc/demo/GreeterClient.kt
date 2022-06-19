@@ -12,8 +12,8 @@ interface GreeterClient {
 }
 
 // Data class
-data class GreetRequest(val name: String)
-data class GreetReply(val message: String)
+class GreetRequest(val name: String)
+class GreetReply(val message: String)
 
 /**
  * Explicit mapping layer with mapstruct.
