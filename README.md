@@ -2,7 +2,7 @@
 
 Demo for [grpc-kotlin-plus](https://github.com/airwallex/grpc-kotlin-plus) project
 
-All examples are using "grpc-spring" gradle plugin, see [build script](/build.gradle.kts)
+All examples are using `com.airwallex.grpc` gradle plugin, see [build script](/build.gradle.kts)
 
 ## [greeting](/greeting)
 

@@ -1,5 +1,6 @@
 package com.airwallex.grpc.demo
 
+import com.airwallex.grpc.annotations.GrpcMethod
 import com.airwallex.grpc.annotations.GrpcService
 import com.airwallex.grpc.demo.Greeting3.HelloReply3
 import com.airwallex.grpc.demo.Greeting3.HelloRequest3
@@ -17,8 +18,14 @@ import reactor.core.publisher.Mono
  *
  * schema: "greeting3.proto"
  */
-@GrpcService(mapperInterface = GreeterMapper::class)
+@GrpcService
 interface Greeter3 {
+    @GrpcMethod(
+        requestMapper = GreetRequestMapper::class,
+        requestMapperProtoType = HelloRequest3::class,
+        responseMapper = GreetReplyMapper::class,
+        responseMapperProtoType = HelloReply3::class
+    )
     fun sayHello(request: GreetRequest): Mono<GreetReply> // other async types are supported as well.
 }
 
@@ -34,16 +41,9 @@ class GreetReply(val message: String)
 
 /**
  * Explicit mapping layer with mapstruct.
- *
- * This example uses default method names, can use custom method name with @GrpcMethod in service method.
  */
 @Mapper(config = ProtobufConfig::class)
-interface GreeterMapper {
-    // for server
-    fun sayHelloMapRequestFromProto(request: HelloRequest3): GreetRequest
-    fun sayHelloMapResponseToProto(response: GreetReply): HelloReply3
+interface GreetRequestMapper : com.airwallex.mapstruct.protobuf.MessageMapper<HelloRequest3, GreetRequest>
 
-    // for client
-    fun sayHelloMapRequestToProto(request: GreetRequest): HelloRequest3
-    fun sayHelloMapResponseFromProto(response: HelloReply3): GreetReply
-}
+@Mapper(config = ProtobufConfig::class)
+interface GreetReplyMapper : com.airwallex.mapstruct.protobuf.MessageMapper<HelloReply3, GreetReply>
